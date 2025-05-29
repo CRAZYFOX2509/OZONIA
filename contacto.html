@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto | Círculo de Plata</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #fff; }
+        .logo { display: block; margin: 30px auto 10px auto; width: 220px; }
+        nav { background: #fff; border-bottom: 2px solid #bfa14a; text-align: center; }
+        nav a {
+            text-decoration: none; color: #bfa14a; font-weight: bold; font-size: 18px;
+            margin: 0 20px; padding: 15px 0; display: inline-block;
+        }
+        nav a:hover { color: #e0c068; }
+        .contacto {
+            background: #f9f6f2; max-width: 400px; margin: 40px auto; padding: 30px;
+            border-radius: 16px; box-shadow: 0 4px 16px rgba(191,161,74,0.08);
+            transition: box-shadow 0.3s;
+        }
+        .contacto:hover { box-shadow: 0 8px 24px rgba(191,161,74,0.18); }
+        form { display: flex; flex-direction: column; gap: 10px; }
+        input, textarea { padding: 8px; border: 1px solid #bfa14a; border-radius: 5px; font-size: 16px; }
+        button { background: #bfa14a; color: #fff; border: none; padding: 10px; border-radius: 5px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #e0c068; }
+        .info { text-align: center; color: #555; margin-top: 20px; }
+        footer { background: #fff; border-top: 2px solid #e0c068; text-align: center; padding: 15px 0; font-size: 15px; color: #bfa14a; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <img src="img/logo.jpeg" alt="Logo Círculo de Plata" class="logo">
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="testimonios.html">Testimonios</a>
+        <a href="promociones.html">Promociones</a>
+    </nav>
+    <div class="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="info">
+            <p>Dirección: Calle de la Plata 123, Ciudad Círculo</p>
+            <p>Teléfono: 555-123-4567</p>
+            <p>Email: contacto@circulodeplata.com</p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Círculo de Plata. Todos los derechos reservados.
+    </footer>
+</body>
+</html> 

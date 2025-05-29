@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Círculo de Plata</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #fff; }
+        .logo { display: block; margin: 30px auto 0 auto; width: 220px; border: none; border-radius: 0; box-shadow: none; }
+        .banner { display: block; margin: 0 auto 20px auto; width: 90%; max-width: 900px; }
+        nav { background: #fff; border-bottom: 2px solid #bfa14a; text-align: center; }
+        nav a {
+            text-decoration: none; color: #bfa14a; font-weight: bold; font-size: 18px;
+            margin: 0 20px; padding: 15px 0; display: inline-block;
+        }
+        nav a:hover { color: #e0c068; }
+        .bienvenida {
+            background: #fff; max-width: 700px; margin: 40px auto; padding: 30px;
+            border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+        .carrusel-container { max-width: 700px; margin: 40px auto 0 auto; }
+        .carrusel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            background: #fff;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+        .slides img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 16px;
+            background: #fff;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 22px;
+            border-radius: 50%;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .video-container { max-width: 700px; margin: 40px auto; text-align: center; }
+        footer {
+            background: #fff; border-top: 2px solid #e0c068; text-align: center;
+            padding: 15px 0; font-size: 15px; color: #bfa14a; margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <img src="img/logo.jpeg" alt="Logo Círculo de Plata" class="logo">
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="testimonios.html">Testimonios</a>
+        <a href="promociones.html">Promociones</a>
+    </nav>
+    <!-- Banner -->
+    <img src="img/Banner.png" alt="Banner Círculo de Plata" class="banner">
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel-container">
+        <div class="carrusel">
+            <div class="slides" id="slides">
+                <img src="https://distribuidoradejoyas.cl/img/cms/Blog/Plata%20925%20vs%20950.jpg" alt="Joya de Plata 925 vs 950">
+                <img src="https://djoyas02.akamaized.net/25347-home_default/anillo-de-plata-925-estilo-circon-solitario-con-laminas-de-oro.jpg" alt="Anillo de plata 925 circon solitario">
+                <img src="https://djoyas01.akamaized.net/25313-home_default/collar-de-plata-925-punto-de-luz-40-cm-6-mm.jpg" alt="Collar de plata 925 punto de luz">
+                <img src="https://djoyas02.akamaized.net/25292-home_default/colgante-de-plata-925-modelo-colmillo-con-diseno-en-borde-superior.jpg" alt="Colgante de plata 925 colmillo">
+                <img src="https://djoyas03.akamaized.net/25282-home_default/anillo-de-plata-925-diseno-banda-gruesa-con-textura-corrugada-.jpg" alt="Anillo de plata 925 banda gruesa">
+                <img src="https://djoyas02.akamaized.net/25306-home_default/pulsera-de-plata-925-diseno-corazon-y-infinito-con-circones.jpg" alt="Pulsera de plata 925 corazón e infinito">
+            </div>
+            <button class="prev" onclick="mover(-1)">&#10094;</button>
+            <button class="next" onclick="mover(1)">&#10095;</button>
+        </div>
+    </div>
+    <!-- Bienvenida -->
+    <div class="bienvenida">
+        <h2>Bienvenidos a Círculo de Plata</h2>
+        <p>Descubre la elegancia y el brillo único de nuestras joyas en Círculo de Plata.</p>
+    </div>
+    <!-- Video -->
+    <div class="video-container">
+        <h3>Conoce más sobre la joyería</h3>
+        <iframe id="videojoya" width="100%" height="320" src="https://www.youtube.com/embed/w4B71GuGx4w?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Haz clic en cualquier parte de la página para activar el sonido.</p>
+    </div>
+    <footer>
+        &copy; 2025 Círculo de Plata. Todos los derechos reservados.
+    </footer>
+    <script>
+    // Carrusel
+    let index = 0;
+    const slides = document.getElementById('slides');
+    const total = slides.children.length;
+    function mostrar(i) {
+        index = (i + total) % total;
+        slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+    }
+    function mover(dir) { mostrar(index + dir); }
+    mostrar(0);
+    // Autoplay
+    setInterval(() => { mover(1); }, 3000);
+    // Video: autoplay y sonido al hacer click
+    const video = document.getElementById('videojoya');
+    document.body.addEventListener('click', function() {
+        video.muted = false;
+        video.play();
+    }, { once: true });
+    </script>
+</body>
+</html> 
