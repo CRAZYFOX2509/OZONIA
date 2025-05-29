@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacítate y conquista el futuro - TIC</title>
+    <meta name="description" content="Mensaje motivacional final del curso de Tecnologías de la Información y la Comunicación">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --cosmic-purple: #ff00c8;
+            --cosmic-blue: #00e1ff;
+            --cosmic-pink: #ff4ecd;
+            --cosmic-cyan: #00fff7;
+            --cosmic-orange: #ff5e62;
+            --star-color: #ffffff;
+            --space-bg: #1a0033;
+        }
+        .motivational-bg {
+            background: rgba(26, 0, 51, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            padding: 2.5rem 1.5rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .motivational-text {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: var(--star-color);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-shadow: 0 0 18px var(--cosmic-purple), 0 0 8px var(--cosmic-blue);
+            font-family: 'Poppins', 'Orbitron', sans-serif;
+        }
+        @media (max-width: 768px) {
+            .motivational-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Partículas con colores fucsia y azul eléctrico
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": ["#ff00c8", "#00e1ff", "#ff4ecd", "#00fff7"] },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                    "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#ff00c8", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                        "push": { "particles_nb": 4 }
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // Estelas digitales
+            const createDigitalTrail = () => {
+                const trail = document.createElement('div');
+                trail.className = 'digital-trail';
+                trail.style.left = Math.random() * 100 + '%';
+                trail.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                document.body.appendChild(trail);
+                trail.addEventListener('animationend', () => trail.remove());
+            };
+            setInterval(createDigitalTrail, 1000);
+        });
+    </script>
+</head>
+<body>
+    <!-- Contenedor de partículas -->
+    <div id="particles-js"></div>
+
+    <div class="page-container">
+        <div class="motivational-bg">
+            <div class="motivational-text" id="typewriter-text"></div>
+        </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <a href="pagina13.html" class="navigation-button prev-page-button" aria-label="Ir a la página anterior">
+        <i class="fas fa-arrow-left"></i>
+        <span>Anterior</span>
+    </a>
+    <a href="pagina15.html" class="navigation-button next-page-button" aria-label="Ir a la página siguiente">
+        <span>Siguiente</span>
+        <i class="fas fa-arrow-right"></i>
+    </a>
+
+    <script src="script.js" defer></script>
+    <script>
+        // Efecto máquina de escribir para el mensaje motivacional
+        document.addEventListener('DOMContentLoaded', () => {
+            const text = 'LA TECNOLOGÍA NO ESPERA.. ¡CAPACÍTATE, DESPIERTA Y CONQUISTA EL FUTURO!';
+            const typewriter = document.getElementById('typewriter-text');
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    typewriter.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+                    i++;
+                    setTimeout(type, 40);
+                }
+            }
+            type();
+        });
+    </script>
+</body>
+</html> 

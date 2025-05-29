@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias! - Proyecto TIC</title>
+    <meta name="description" content="Página de agradecimiento y cierre del proyecto de Tecnologías de la Información y la Comunicación">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --cosmic-purple: #00c853;
+            --cosmic-blue: #ffd600;
+            --cosmic-pink: #aeea00;
+            --cosmic-cyan: #b2ff59;
+            --cosmic-orange: #ffd600;
+            --star-color: #ffffff;
+            --space-bg: #003300;
+        }
+        .thanks-bg {
+            background: rgba(0, 51, 0, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            padding: 2.5rem 1.5rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .thanks-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #ffd600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 18px #00c853, 0 0 8px #ffd600;
+        }
+        .thanks-content {
+            font-size: 1.3rem;
+            color: var(--star-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .thanks-highlight {
+            color: #aeea00;
+            font-weight: bold;
+        }
+        .thanks-footer {
+            font-size: 1.1rem;
+            color: #ffd600;
+            text-align: center;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .thanks-title { font-size: 1.5rem; }
+            .thanks-content { font-size: 1rem; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Partículas con colores verdes y dorados
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": ["#00c853", "#ffd600", "#aeea00", "#b2ff59"] },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                    "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#00c853", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                        "push": { "particles_nb": 4 }
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // Estelas digitales
+            const createDigitalTrail = () => {
+                const trail = document.createElement('div');
+                trail.className = 'digital-trail';
+                trail.style.left = Math.random() * 100 + '%';
+                trail.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                document.body.appendChild(trail);
+                trail.addEventListener('animationend', () => trail.remove());
+            };
+            setInterval(createDigitalTrail, 1000);
+        });
+    </script>
+</head>
+<body>
+    <!-- Contenedor de partículas -->
+    <div id="particles-js"></div>
+
+    <div class="page-container">
+        <div class="thanks-bg">
+            <div class="thanks-title">¡GRACIAS!</div>
+            <div class="thanks-content">
+                Este proyecto fue posible gracias a la dedicación, entusiasmo y participación del<br>
+                <span class="thanks-highlight">Profesor Herrera García Juan Manuel</span><br>
+                y el <span class="thanks-highlight">Grupo 605 del turno vespertino</span>.<br><br>
+                Agradecemos a cada estudiante por su esfuerzo, creatividad y compromiso durante el desarrollo de este trabajo.<br>
+                ¡Su pasión por aprender y crecer en el mundo de la tecnología es el motor que impulsa el futuro!
+            </div>
+            <div class="thanks-footer">
+                ¡Sigan soñando, creando y conquistando nuevos retos!<br>
+                <i class="fas fa-heart"></i> <i class="fas fa-star"></i> <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón para volver al inicio -->
+    <a href="pagina14.html" class="navigation-button prev-page-button" aria-label="Ir a la página anterior">
+        <i class="fas fa-arrow-left"></i>
+        <span>Anterior</span>
+    </a>
+    <a href="pagina1.html" class="navigation-button" style="left:50%;transform:translateX(-50%);bottom:1rem;position:fixed;z-index:1001;background:#ffd600;color:#003300;font-weight:bold;box-shadow:0 0 20px #ffd600;" aria-label="Volver al inicio">
+        <i class="fas fa-home"></i>
+        <span>Volver al inicio</span>
+    </a>
+
+    <script src="script.js" defer></script>
+</body>
+</html> 
